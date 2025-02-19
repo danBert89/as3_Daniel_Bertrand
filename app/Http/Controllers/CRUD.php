@@ -10,6 +10,6 @@ class CRUD extends Controller
     public function retrieve()
     {
         $inventory = DB::select("SELECT * FROM inventory");
-        return view('app', ["inventory" => $inventory]);
+        return view('manage', ["inventory" => $inventory, "title" => "Manage"]);
     }
 }

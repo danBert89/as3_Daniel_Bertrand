@@ -10,9 +10,7 @@ Route::get('/', function () {
 Route::get("/home", function () {
     return view("home", ["title" => "Home"]);
 });
-Route::get("/manage", function () {
-    return view("manage", ["title" => "Manage"]);
-});
+Route::get("/manage", [CRUD::class, 'retrieve']);
 Route::get("/search", function () {
     return view("search", ["title" => "Search"]);
 });
