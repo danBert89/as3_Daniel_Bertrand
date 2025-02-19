@@ -31,6 +31,7 @@
             bottom: 0;
             border-top: 2px solid black;
             padding-top: 10px;
+            margin-top: 20px;
         }
 
         table {

@@ -10,6 +10,7 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Edit | Delete</th>
         </tr>
         @forelse($inventory as $item)
         <tr>
@@ -17,6 +18,7 @@
             <td>{{ $item-> name }}</td>
             <td>{{ $item->description }}</td>
             <td>{{ $item->price }}</td>
+            <td> <a href="http://localhost:8000/edit/{{ $item->code }}">Edit</a> | <a href="http://localhost:8000/delete/{{ $item->code }}">Delete</a></td>
         </tr>
         @empty
         <tr>
