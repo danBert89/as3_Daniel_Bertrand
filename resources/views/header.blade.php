@@ -18,7 +18,7 @@
         .sidebar {
             background-color: #e0e0e0 !important;
             border-right: 2px solid #ddd;
-            height: 87vh;
+            height: 100%;
         }
 
         .main-content {
@@ -27,12 +27,30 @@
 
         #footer {
             text-align: center;
-            position: absolute;
+            width: 100%;
             bottom: 0;
             border-top: 2px solid black;
             padding-top: 10px;
-            padding-bottom: 10px;
+        }
 
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>

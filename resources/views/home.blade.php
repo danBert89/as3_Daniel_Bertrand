@@ -7,4 +7,4 @@
     <img src="{{ asset('images/home_pic.png') }}" alt="Description">
 </div>
 
-@endsection("content")
+@endsection
