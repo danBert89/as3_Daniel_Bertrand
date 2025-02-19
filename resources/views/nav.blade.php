@@ -1,16 +1,16 @@
-<div id="navbar">
-    <ul>
-        <li>
-            <a href="http://localhost:8000/home" class="{{ $title == 'Home' ? 'highlight' : '' }}">Home</a>
+<div id="navbar" class="bg-dark p-3">
+    <ul class="nav">
+        <li class="nav-item">
+            <a href="http://localhost:8000/home" class="nav-link {{ $title == 'Home' ? 'highlight' : '' }}">Home</a>
         </li>
-        <li>
-            <a href="http://localhost:8000/manage" class="{{ $title == 'Manage' ? 'highlight' : '' }}">Manage</a>
+        <li class="nav-item">
+            <a href="http://localhost:8000/manage" class="nav-link {{ $title == 'Manage' ? 'highlight' : '' }}">Manage</a>
         </li>
-        <li>
-            <a href="http://localhost:8000/search" class="{{ $title == 'Search' ? 'highlight' : '' }}">Search</a>
+        <li class="nav-item">
+            <a href="http://localhost:8000/search" class="nav-link {{ $title == 'Search' ? 'highlight' : '' }}">Search</a>
         </li>
-        <li>
-            <a href="http://localhost:8000/about" class="{{ $title == 'About' ? 'highlight' : '' }}">About</a>
+        <li class="nav-item">
+            <a href="http://localhost:8000/about" class="nav-link {{ $title == 'About' ? 'highlight' : '' }}">About</a>
         </li>
     </ul>
 </div>
