@@ -18,7 +18,7 @@
             <td>{{ $item-> name }}</td>
             <td>{{ $item->description }}</td>
             <td>{{ $item->price }}</td>
-            <td> <a href="http://localhost:8000/edit/{{ $item->code }}">Edit</a> |
+            <td> <a href="/manage/edit/{{ $item->code }}"><button>Edit</button></a> ||
                 <form method="POST" action="{{ url('/manage/delete/'.$item->code) }}" style="display:inline;">
                     @csrf
                     @method('DELETE')
@@ -33,14 +33,13 @@
         @endforelse
     </table>
     <br>
-    @if(!$showForm)
-    <a href="/manage/create">Create New Item</a>
+    @if(!$showCreateForm)
+    <a href="/manage/create"> <button>Create New Item </button></a>
     @endif
 
-    @if($showForm)
+    @if($showCreateForm)
     <h2>Create An Item</h2>
     <form action="/manage/insert" method="post">
-        @csrf
         <label for="name">Name:</label><br>
         <input type="text" name="name" required><br>
         <label for="description">Description:</label><br>
@@ -48,6 +47,23 @@
         <label for="price">Price:</label><br>
         <input type="text" name="price" required><br>
         <input type="submit" value="Create Item">
+        @csrf
+    </form>
+    @endif
+
+    @if($showEditForm && isset($editingItem))
+    <h2>Edit An Item</h2>
+    <form action="/manage/edit" method="post">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="code" value="{{ $editingItem->code }}">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" value="{{ $editingItem->name }}" required><br>
+        <label for="description">Description:</label><br>
+        <input type="text" name="description" value="{{ $editingItem->description }}" required><br>
+        <label for="price">Price:</label><br>
+        <input type="text" name="price" value="{{ $editingItem->price }}" required><br>
+        <input type="submit" value="Update Item">
     </form>
     @endif
 </div>
