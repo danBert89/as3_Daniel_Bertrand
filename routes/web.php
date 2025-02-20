@@ -17,3 +17,4 @@ Route::get("/search", function () {
 Route::get("/about", function () {
     return view("about", ["title" => "About"]);
 });
+Route::delete("/manage/delete/{id}", [CRUD::class, 'delete']);

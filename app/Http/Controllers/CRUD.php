@@ -12,4 +12,10 @@ class CRUD extends Controller
         $inventory = DB::select("SELECT * FROM inventory");
         return view('manage', ["inventory" => $inventory, "title" => "Manage"]);
     }
+    public function delete($id)
+    {
+
+        DB::delete("DELETE FROM inventory WHERE code = ?", [$id]);
+        return redirect('/manage')->with('success', 'Item deleted successfully.');
+    }
 }

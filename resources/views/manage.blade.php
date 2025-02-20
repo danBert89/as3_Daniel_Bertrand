@@ -18,7 +18,13 @@
             <td>{{ $item-> name }}</td>
             <td>{{ $item->description }}</td>
             <td>{{ $item->price }}</td>
-            <td> <a href="http://localhost:8000/edit/{{ $item->code }}">Edit</a> | <a href="http://localhost:8000/delete/{{ $item->code }}">Delete</a></td>
+            <td> <a href="http://localhost:8000/edit/{{ $item->code }}">Edit</a> |
+                <form method="POST" action="{{ url('/manage/delete/'.$item->code) }}" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
         @empty
         <tr>
