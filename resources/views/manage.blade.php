@@ -3,7 +3,7 @@
 
 <div id="content">
 
-    <h2>Student Records</h2>
+    <h2>Inventory</h2>
     <table>
         <tr>
             <th>code</th>
@@ -51,7 +51,7 @@
     </form>
     @endif
 
-    @if($showEditForm && isset($editingItem))
+    @if($showEditForm)
     <h2>Edit An Item</h2>
     <form action="/manage/edit" method="post">
         @csrf

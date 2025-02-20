@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CRUD extends Controller
 {
@@ -47,7 +48,6 @@ class CRUD extends Controller
             "title" => "Manage"
         ]);
     }
-
     public function edit(Request $request)
     {
         DB::update("UPDATE inventory SET name = :name, description = :description, price = :price WHERE code = :code", [
@@ -58,5 +58,40 @@ class CRUD extends Controller
         ]);
 
         return redirect("/manage")->with('success', 'Item updated successfully.');
+    }
+    public function search()
+    {
+        $inventory = DB::select("SELECT * FROM inventory");
+        return view('/search', [
+            "inventory" => $inventory,
+            "title" => "Search",
+            "showNoSearch" => true,
+            "showSearch" => false
+        ]);
+    }
+
+    public function searchResults(Request $request)
+
+    {
+        $low = $request->input('low');
+        $high = $request->input('high');
+        $term = "%" . $request->input('term') . "%";
+
+        $inventory = "SELECT * FROM inventory 
+        WHERE price BETWEEN :low AND :high
+        AND CONCAT(name, ' ', description, ' ', code) LIKE :term";
+
+        $inventory = DB::select($inventory, [
+            'low' => $low,
+            'high' => $high,
+            'term' => $term
+        ]);
+
+        return view('/search', [
+            "inventory" => $inventory,
+            "title" => "Search",
+            "showNoSearch" => false,
+            "showSearch" => true
+        ]);
     }
 }
