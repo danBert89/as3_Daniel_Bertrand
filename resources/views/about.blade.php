@@ -6,7 +6,7 @@
             <div class="sidebar bg-dark p-3">
                 <h4>Sidebar</h4>
                 <div style="display: flex; align-items: center;">
-                    <img src="{{ asset('images/techSupport.png') }}" alt="Description">
+                    <img src="{{ asset('images/techSupport.png') }}" alt="tech support">
                     <p>123-456-7890 || tech@techsupport.com</p>
                 </div>
             </div>

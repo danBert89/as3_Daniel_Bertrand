@@ -18,3 +18,7 @@ Route::get("/about", function () {
     return view("about", ["title" => "About"]);
 });
 Route::delete("/manage/delete/{id}", [CRUD::class, 'delete']);
+Route::post("/manage/insert", [CRUD::class, 'insert']);
+Route::get('/manage/create', [CRUD::class, 'showCreateForm']);
+Route::get('/manage/edit/{id}', [CRUD::class, 'showEditForm']);
+Route::put('/manage/edit/{id}', [CRUD::class, 'edit']);

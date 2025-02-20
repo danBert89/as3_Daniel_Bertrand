@@ -28,10 +28,29 @@
         </tr>
         @empty
         <tr>
-            <td colspan="4">No records found</td>
+            <td colspan="5">No records found</td>
         </tr>
         @endforelse
     </table>
+    <br>
+    @if(!$showForm)
+    <a href="/manage/create">Create New Item</a>
+    @endif
+
+    @if($showForm)
+    <h2>Create An Item</h2>
+    <form action="/manage/insert" method="post">
+        @csrf
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" required><br>
+        <label for="description">Description:</label><br>
+        <input type="text" name="description" required><br>
+        <label for="price">Price:</label><br>
+        <input type="text" name="price" required><br>
+        <input type="submit" value="Create Item">
+    </form>
+    @endif
+</div>
 </div>
 
 @endsection
